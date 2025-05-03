@@ -7,18 +7,20 @@ var direction : Vector2 = Vector2.ZERO
 @onready var Animation_Player : AnimationPlayer = $AnimationPlayer
 @onready var Sprite : Sprite2D = $Sprite2D
 @onready var state_machine : PlayeStateMachine = $StateMachine
+ 
+signal DirectionChanged(new_direction:Vector2)
 
 
 func _ready ():
 	state_machine.Initialize(self)
 
 
-func _process( delta ):
+func _process( _delta ):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
 
-func _physics_process( delta ):
+func _physics_process( _delta ):
 	move_and_slide()
 
 
@@ -35,7 +37,7 @@ func SetDirection() -> bool:
 	if new_dir == cardinal_direction:
 		return false
 	cardinal_direction = new_dir
-	
+	DirectionChanged.emit(new_dir)
 	Sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
 

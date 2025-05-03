@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dfkhil1vy3ojc"]
+[gd_scene load_steps=29 format=3 uid="uid://dfkhil1vy3ojc"]
 
 [ext_resource type="Script" uid="uid://15jy7fx6jwir" path="res://Player/scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://dywxwuqh4etgq" path="res://Player/sprites/PlayerSprite02.png" id="2_fhl08"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://o64fo66i23jk" path="res://Player/scripts/State_Walk.gd" id="5_od3ui"]
 [ext_resource type="Script" uid="uid://3wvc3a7gbuhy" path="res://Player/scripts/State_Attack.gd" id="6_00tjw"]
 [ext_resource type="AudioStream" uid="uid://pr0ht4p68rtu" path="res://Player/audio/SwordSwoosh.wav" id="7_vtle1"]
+[ext_resource type="PackedScene" uid="uid://dncli6eetofht" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="9_00tjw"]
+[ext_resource type="Script" uid="uid://ccw3qpd2ox7fs" path="res://Player/scripts/PlayerInteractionHost.gd" id="9_x3vf3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
 
@@ -196,6 +198,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_4ntmi"]
 resource_name = "idle_down"
 length = 0.4
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -212,6 +215,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "idle_side"
 length = 0.4
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -228,6 +232,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_gwnis"]
 resource_name = "idle_up"
 length = 0.4
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -244,6 +249,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_fhl08"]
 resource_name = "walk_down"
 length = 0.3
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -260,6 +266,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_vtle1"]
 resource_name = "walk_side"
 length = 0.3
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -276,6 +283,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_od3ui"]
 resource_name = "walk_up"
 length = 0.3
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -303,7 +311,13 @@ _data = {
 &"walk_up": SubResource("Animation_od3ui")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_00tjw"]
+radius = 20.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 16
+motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -348,3 +362,20 @@ attack_sound = ExtResource("7_vtle1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
 max_polyphony = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.49405, 1)
+zoom = Vector2(2, 2)
+limit_left = -10000499
+
+[node name="Interactions" type="Node2D" parent="."]
+script = ExtResource("9_x3vf3")
+
+[node name="HurtBox" parent="Interactions" instance=ExtResource("9_00tjw")]
+position = Vector2(0, 16)
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
+shape = SubResource("CircleShape2D_00tjw")
+debug_color = Color(0.806948, 0.362981, 0.530534, 0.42)

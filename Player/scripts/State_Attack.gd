@@ -10,9 +10,9 @@ var attacking : bool = false
 @onready var idle : State = $"../Idle"
 @onready var audio : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @onready var attack_anim : AnimationPlayer = $"../../Sprite2D/AttackEffectSprite/AnimationPlayer"
+@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 
-#What happens when the player enters this state
 func Enter() -> void:
 	player.UpdateAnimation("attack")
 	attack_anim.play("attack_" + player.AnimDirection())
@@ -23,12 +23,14 @@ func Enter() -> void:
 	audio.play()
 	
 	attacking = true
+	
+	await get_tree().create_timer(0.075).timeout 
+	hurt_box.monitoring = true
 
-
-#What happens when the player exits this state
 func Exit() -> void:
 	animation_player.animation_finished.disconnect(EndAttack)
 	attacking = false
+	hurt_box.monitoring = false
 
 
 func Process(_delta: float) -> State:
