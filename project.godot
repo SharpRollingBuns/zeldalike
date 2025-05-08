@@ -11,14 +11,12 @@ config_version=5
 [application]
 
 config/name="TopDownZeldaLike"
-run/main_scene="res://playground.tscn"
+run/main_scene="res://scenes/main/playground.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/window_width_override=1920
-window/size/window_height_override=1080
 window/stretch/mode="viewport"
 
 [input]
