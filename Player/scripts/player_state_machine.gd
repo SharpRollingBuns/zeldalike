@@ -16,7 +16,7 @@ func _process (delta):
 
 
 func _physics_process (delta):
-	ChangeState(current_state.Psysics(delta))
+	ChangeState(current_state.Physics(delta))
 
 
 func _unhandled_input(event):
@@ -41,6 +41,7 @@ func Initialize(_player : Player) -> void:
 	for c in get_children():
 		if c is State:
 			states.append(c)
+	
 	if states.size() > 0:
 		states[0].player = _player
 		ChangeState(states[0])

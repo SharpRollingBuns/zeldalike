@@ -26,7 +26,7 @@ func Process(_delta: float) -> State:
 	return null
 
 
-func Psysics(_delta: float) -> State:
+func Physics(_delta: float) -> State:
 	return null
 
 

@@ -11,4 +11,3 @@ func _ready():
 func AreaEntered(a : Area2D) -> void:
 	if a is HitBox:
 		a.TakeDamage(damage)
-	

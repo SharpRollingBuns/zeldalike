@@ -1,7 +1,0 @@
-res://playground.tscn
-res://Player/scripts/player.gd
-res://Player/scripts/player_state_machine.gd
-res://Player/scripts/State.gd
-res://Player/scripts/State_Attack.gd
-res://Player/scripts/State_Idle.gd
-res://Player/scripts/State_Walk.gd
