@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvm28exdcnmr"]
+
+[ext_resource type="Texture2D" uid="uid://w7ox1bmojo0j" path="res://assets/sprites/dungeon_entrance.png" id="1_2l10c"]
+
+[node name="Door" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.333, 0.333)
+texture = ExtResource("1_2l10c")

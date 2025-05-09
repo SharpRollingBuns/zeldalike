@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://csmpkxl2y02w7"]
+
+[node name="Chest" type="StaticBody2D"]

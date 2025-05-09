@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LevelSpawnConfig" load_steps=7 format=3 uid="uid://cbdsljbb0gmrt"]
+
+[ext_resource type="Script" uid="uid://bgxlqi74uuslw" path="res://resources/configs/spawner-configs/spawn_config.gd" id="1_wk68u"]
+[ext_resource type="PackedScene" uid="uid://dvm28exdcnmr" path="res://scenes/entities/doors/door.tscn" id="2_6p0te"]
+[ext_resource type="Script" uid="uid://buxfqhipehxf3" path="res://resources/configs/spawner-configs/level_spawn_config.gd" id="3_b1dbm"]
+[ext_resource type="PackedScene" uid="uid://dvkg18bkv5v28" path="res://scenes/entities/enemies/enemy.tscn" id="3_jf8us"]
+
+[sub_resource type="Resource" id="Resource_jf8us"]
+script = ExtResource("1_wk68u")
+group_name = "doors"
+scene = ExtResource("2_6p0te")
+z_index = 0
+metadata/_custom_type_script = "uid://bgxlqi74uuslw"
+
+[sub_resource type="Resource" id="Resource_gok1w"]
+script = ExtResource("1_wk68u")
+group_name = "enemies"
+scene = ExtResource("3_jf8us")
+z_index = 0
+metadata/_custom_type_script = "uid://bgxlqi74uuslw"
+
+[resource]
+script = ExtResource("3_b1dbm")
+groups = Array[ExtResource("1_wk68u")]([SubResource("Resource_jf8us"), SubResource("Resource_gok1w")])
