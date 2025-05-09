@@ -6,16 +6,11 @@ extends LevelGenerator
 @export var min_room      : Vector2i = Vector2i(4, 4)
 @export var max_room      : Vector2i = Vector2i(10, 10)
 
-enum Tile {
-	WALL,
-	FLOOR,
-}
-
 
 func generate() -> Dictionary:
 	var grid := PackedInt32Array()
 	grid.resize(grid_width * grid_height)
-	grid.fill(Tile.WALL)
+	grid.fill(TileType.WALL)
 
 	var rooms : Array[Rect2i] = []
 	var rng := RandomNumberGenerator.new()
@@ -50,10 +45,10 @@ func _intersects(rect: Rect2i, pool: Array) -> bool:
 	return false
 
 
-func _carve_room(r: Rect2i, grid :PackedInt32Array) -> void:
+func _carve_room(r: Rect2i, grid: PackedInt32Array) -> void:
 	for y in r.size.y:
 		for x in r.size.x:
-			grid[(r.position.y + y) * grid_width + (r.position.x + x)] = Tile.FLOOR
+			grid[(r.position.y + y) * grid_width + (r.position.x + x)] = TileType.FLOOR
 
 
 func _connect_rooms(rooms: Array, grid: PackedInt32Array) -> void:
@@ -67,12 +62,12 @@ func _connect_rooms(rooms: Array, grid: PackedInt32Array) -> void:
 
 func _dig_tunnel_x(x1: int, x2: int, y: int, grid: PackedInt32Array):
 	for x in range(min(x1, x2), max(x1, x2) + 1):
-		grid[y * grid_width + x] = Tile.FLOOR
+		grid[y * grid_width + x] = TileType.FLOOR
 
 
 func _dig_tunnel_y(y1: int, y2: int, x: int, grid: PackedInt32Array):
 	for y in range(min(y1, y2), max(y1, y2) + 1):
-		grid[y * grid_width + x] = Tile.FLOOR
+		grid[y * grid_width + x] = TileType.FLOOR
 
 
 func _pick_from_rooms(rooms: Array, rng: RandomNumberGenerator, n: int) -> Array[Vector2i]:

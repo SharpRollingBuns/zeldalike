@@ -4,7 +4,6 @@ extends Resource
 
 @export var grid_width : int = 64
 @export var grid_height : int = 64
-@export var tile_set : TileSet     # ссылка на ваш TileSet
 
 signal finished(level_data: Dictionary)
 
