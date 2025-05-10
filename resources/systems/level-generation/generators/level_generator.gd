@@ -5,6 +5,7 @@ extends Resource
 @export var grid_width : int = 35
 @export var grid_height : int = 20
 
+@warning_ignore("unused_variable", "unused_signal")
 signal finished(level_data: Dictionary)
 
 

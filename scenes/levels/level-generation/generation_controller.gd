@@ -43,11 +43,15 @@ func _paint_layers(grid: PackedInt32Array) -> void:
 
 func _spawn_entities(data: Dictionary) -> void:
 	for key in data.keys():
+		if key == "grid":
+			continue
+		
 		var cfg := spawn_config.get_group(key)
 		if cfg == null:
 			push_warning("Нет конфига для группы '%s'" % key)
 			continue
 		_spawn_group(data[key], cfg.scene, cfg.z_index)
+
 
 func _spawn_group(list: Array, scene: PackedScene, z: int) -> void:
 	for cell in list:

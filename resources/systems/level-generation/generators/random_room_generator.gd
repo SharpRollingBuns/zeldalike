@@ -3,8 +3,8 @@ extends LevelGenerator
 
 
 @export var room_attempts : int = 80
-@export var min_room      : Vector2i = Vector2i(4, 4)
-@export var max_room      : Vector2i = Vector2i(10, 10)
+@export var min_room : Vector2i = Vector2i(4, 4)
+@export var max_room : Vector2i = Vector2i(10, 10)
 
 
 func generate() -> Dictionary:
