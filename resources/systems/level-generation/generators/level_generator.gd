@@ -2,8 +2,8 @@ class_name LevelGenerator
 extends Resource
 ## Абстрактный генератор уровня.
 
-@export var grid_width : int = 64
-@export var grid_height : int = 64
+@export var grid_width : int = 35
+@export var grid_height : int = 20
 
 signal finished(level_data: Dictionary)
 

@@ -9,9 +9,8 @@
 
 [sub_resource type="Resource" id="Resource_gden7"]
 script = ExtResource("3_5o0ir")
-max_split_depth = 5
+max_split_depth = 7
 min_room_size = Vector2i(3, 3)
-room_min_fill_ratio = 0.7
 margin_inside_leaf = 1
 corridor_width = 1
 add_randomness_to_bsp = true
