@@ -11,7 +11,7 @@ extends Resource
 @export var solver_cmd : String = "res://bin/clingo.exe" # имя в PATH или абсолютный путь
 @export var models     : int    = 1          # -n N
 @export var time_limit : int    = 5          # --time-limit (сек)
-@export var keep_tmp   : bool   = false      # оставлять .lp для отладки
+@export var keep_tmp   : bool   = true      # оставлять .lp для отладки
 
 # ────────── публичное API ──────────
 func solve(program_text : String) -> Array:
@@ -30,6 +30,7 @@ func solve(program_text : String) -> Array:
 	var abs_tmp := ProjectSettings.globalize_path(tmp_file)
 	var args : PackedStringArray = [
 		abs_tmp,
+		"--opt-mode=opt",   # или enum/enumN
 		"-n", str(models),
 		"--outf=2",
 		"--time-limit=%d" % time_limit
@@ -51,6 +52,7 @@ func solve(program_text : String) -> Array:
 	# 3) Анализируем код возврата
 	if exit_code != 0:
 		var stdout = "" if output.is_empty() else output[0]
+		print("TMP:", abs_tmp)
 		push_error("clingo exit code %d:\n%s" % [exit_code, stdout])
 		return []
 

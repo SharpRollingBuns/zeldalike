@@ -7,7 +7,7 @@ extends LevelGenerator
 @export var key_count          : int  = 1     #   ключей / замков
 @export var allow_cycles       : bool = false #   циклы в графе
 @export var max_branch_length  : int  = 6
-@export var difficulty         : float = 0.5  #   0..1 (влияет на плотность ловушек)
+@export_range(0, 100, 1) var difficulty : int = 50  #   0-100% (влияет на плотность ловушек)
 
 # – распределение ассетов –
 @export var door_count         : int = 2
@@ -69,7 +69,7 @@ func _build_lp() -> String:
 	sb.append("keys(%d).\n"    % key_count)
 	sb.append("seed(%d).\n"    % seed)
 	if allow_cycles:  sb.append("allow_cycles.\n")
-	sb.append("difficulty(%f).\n" % difficulty)
+	sb.append("difficulty(%d).\n" % difficulty)
 	# … при желании добавьте door_count etc.
 	return "".join(sb)
 
