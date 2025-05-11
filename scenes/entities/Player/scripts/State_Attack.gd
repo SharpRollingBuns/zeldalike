@@ -10,8 +10,11 @@ var attacking : bool = false
 @onready var idle : State = $"../Idle"
 @onready var audio : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @onready var attack_anim : AnimationPlayer = $"../../Sprite2D/AttackEffectSprite/AnimationPlayer"
-@onready var hurt_box: HurtBox = %Interactions/HurtBox
+@onready var hurt_box: HurtBox = %AttackHurtBox
 
+
+func init() -> void:
+	pass
 
 func Enter() -> void:
 	player.UpdateAnimation("attack")
@@ -26,7 +29,6 @@ func Enter() -> void:
 	
 	await get_tree().create_timer(0.075).timeout 
 	hurt_box.monitoring = true
-
 
 func Exit() -> void:
 	animation_player.animation_finished.disconnect(EndAttack)

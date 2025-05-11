@@ -15,6 +15,11 @@ run/main_scene="res://scenes/main/playground.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelManager="*res://scripts/managers/global_level_manager.gd"
+PlayerManager="*res://scripts/managers/global_player_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

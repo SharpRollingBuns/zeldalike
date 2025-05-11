@@ -4,6 +4,9 @@ class_name State_Idle extends State
 @onready var attack : State = $"../Attack"
 
 
+func init() -> void:
+	pass
+
 func Enter() -> void:
 	player.UpdateAnimation("idle")
 

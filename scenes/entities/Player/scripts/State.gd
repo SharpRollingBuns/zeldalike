@@ -1,7 +1,7 @@
 class_name State extends Node
 
 static var player: Player
-
+static var state_machine: PlayeStateMachine
 
 func _ready():
 	pass
