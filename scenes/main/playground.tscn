@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bojoajabr4lsy"]
+[gd_scene load_steps=9 format=4 uid="uid://bojoajabr4lsy"]
 
-[ext_resource type="PackedScene" uid="uid://dfkhil1vy3ojc" path="res://scenes/entities/Player/player.tscn" id="1_rupst"]
+[ext_resource type="Script" uid="uid://b4kdpxc8jwbgv" path="res://scenes/levels/scripts/level.gd" id="1_efq0f"]
 [ext_resource type="PackedScene" uid="uid://dvqjdqijrt48q" path="res://scenes/levels/tile-map/grass-01.tscn" id="2_wt17y"]
 [ext_resource type="Texture2D" uid="uid://psg0sv2jgl6i" path="res://scenes/levels/tile-map/sprites/Grass-01.png" id="3_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://bdu45mmmg54y8" path="res://scenes/entities/Props/Plants/Plant.tscn" id="4_is3ju"]
+[ext_resource type="PackedScene" uid="uid://t27mayjndy6g" path="res://scenes/levels/player_spawn.tscn" id="5_bwdrk"]
 [ext_resource type="PackedScene" uid="uid://8q42xvqjcpef" path="res://scenes/entities/enemies/slime/slime.tscn" id="5_o00ia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnqqh"]
@@ -191,9 +192,7 @@ sources/0 = SubResource("TileSetAtlasSource_wnqqh")
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(5, 4)
-
-[node name="Player" parent="." instance=ExtResource("1_rupst")]
-position = Vector2(560, 276)
+script = ExtResource("1_efq0f")
 
 [node name="Grass-01" parent="." instance=ExtResource("2_wt17y")]
 position = Vector2(-53, -40)
@@ -208,3 +207,6 @@ position = Vector2(637, 275)
 
 [node name="Slime" parent="." instance=ExtResource("5_o00ia")]
 position = Vector2(478, 235)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("5_bwdrk")]
+position = Vector2(597, 224)
