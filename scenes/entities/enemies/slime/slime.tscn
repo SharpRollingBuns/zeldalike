@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fiea40h0tg2e" path="res://scenes/entities/enemies/scripts/enemy.gd" id="1_6326o"]
 [ext_resource type="Texture2D" uid="uid://d4ivl4aw45q0s" path="res://scenes/entities/enemies/slime/Slime.png" id="1_sv735"]
-[ext_resource type="Texture2D" uid="uid://cxkfy0mlquv6h" path="res://scenes/entities/player/sprites/Shadow.png" id="2_j284o"]
+[ext_resource type="Texture2D" uid="uid://cxkfy0mlquv6h" path="res://scenes/entities/Player/sprites/Shadow.png" id="2_j284o"]
 [ext_resource type="Script" uid="uid://caa12ffktquks" path="res://scenes/entities/enemies/scripts/enemy_state_machine.gd" id="4_57eei"]
 [ext_resource type="AudioStream" uid="uid://dql3mhk4wmocu" path="res://scenes/entities/enemies/slime/hit_01.wav" id="5_5ctnu"]
 [ext_resource type="Script" uid="uid://dms4yyebtel4m" path="res://scenes/entities/enemies/scripts/states/enemy_state_idle.gd" id="5_u2l51"]
@@ -62,6 +62,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_klbxu"]
 resource_name = "destroy_down"
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,6 +143,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_im24l"]
 resource_name = "destroy_side"
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -222,6 +224,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_mwtj1"]
 resource_name = "destroy_up"
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false

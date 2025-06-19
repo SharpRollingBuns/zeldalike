@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd65wdm7rvpeq"]
+
+[ext_resource type="Script" uid="uid://csjr54gafuffe" path="res://scenes/levels/scripts/level_transition.gd" id="1_j74r0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6f4a"]
+resource_local_to_scene = true
+size = Vector2(32, 64)
+
+[node name="LevelTransition" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_j74r0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_n6f4a")
+debug_color = Color(0.724243, 0.309912, 0.904036, 0.42)
